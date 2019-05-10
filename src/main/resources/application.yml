@@ -1,0 +1,56 @@
+# 项目相关配置
+server:
+  port: 80
+  servlet:
+    context-path: /
+  tomcat:
+    # tomcat的URI编码
+    uri-encoding: UTF-8
+    # tomcat最大线程数，默认为200
+    max-threads: 800
+    # Tomcat启动初始化的线程数，默认值25
+    min-spare-threads: 30
+
+# Spring配置
+spring:
+  # 模板引擎
+  thymeleaf:
+    mode: HTML
+    encoding: utf-8
+    # 禁用缓存
+    cache: false
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+  profiles:
+    active: dev
+  # 文件上传
+  servlet:
+     multipart:
+       max-file-size: 30MB
+       max-request-size: 30MB
+  # 服务模块
+  devtools:
+    restart:
+      # 热部署开关
+      enabled: true
+  application:
+    name: springboot
+  main:
+    allow-bean-definition-overriding: true
+
+# MyBatis
+mybatis:
+    # 搜索指定包别名
+    typeAliasesPackage: com.test.springboot.model
+    # 配置mapper的扫描，找到所有的mapper.xml映射文件
+    mapperLocations: classpath*:mapping/**/*.xml
+    # 加载全局的配置文件
+    configLocation: classpath:mybatis-config.xml
+
+# PageHelper分页插件
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: false
+  params: count=countSql
