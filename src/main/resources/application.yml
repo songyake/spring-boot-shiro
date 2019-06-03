@@ -54,3 +54,10 @@ pagehelper:
   reasonable: true
   supportMethodsArguments: false
   params: count=countSql
+
+#swagger 配置 默认访问地址是：http://${host}:${port}/doc.html
+swagger:
+  show: true
+  title: 平台title
+  description: 平台description
+  scanPackage: com.test.springboot.controller
