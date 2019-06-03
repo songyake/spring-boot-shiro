@@ -20,12 +20,12 @@ import java.util.concurrent.TimeUnit;
 
 @Component
 @Slf4j
-public class RedisDistributeLock{
+public class RedisLock {
 
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
 
-    public RedisDistributeLock() {
+    public RedisLock() {
     }
 
     public boolean tryLock(String requestId, String key, int expireTime) {
