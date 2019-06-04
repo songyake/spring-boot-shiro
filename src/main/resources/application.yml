@@ -57,7 +57,11 @@ pagehelper:
 
 #swagger 配置 默认访问地址是：http://${host}:${port}/doc.html
 swagger:
-  show: true
   title: 平台title
   description: 平台description
   scanPackage: com.test.springboot.controller
+  production: true
+  basic:
+    enable: false
+    userName: admin
+    password: 123456
