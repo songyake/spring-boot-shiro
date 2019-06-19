@@ -3,7 +3,7 @@
 
     <contextName>logback-demo</contextName>
 
-    <property name="logback.logdir" value="D:/idea/workspace/log"/>
+    <property name="logback.logdir" value="D:/idea/log"/>
     <property name="logback.appname" value="springboot"/>
 
     <!-- 彩色日志 -->
@@ -46,13 +46,14 @@
         -->
         <File>${logback.logdir}/debug.${logback.appname}.log</File>
         <!--滚动策略，按照时间滚动 TimeBasedRollingPolicy-->
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
             <!--文件路径,定义了日志的切分方式——把每一天的日志归档到一个文件中,以防止日志填满整个磁盘空间-->
-            <FileNamePattern>${logback.logdir}/debug.${logback.appname}.%d{yyyy-MM-dd}.log</FileNamePattern>
+            <FileNamePattern>${logback.logdir}/%d{yyyy-MM}/debug.${logback.appname}.%d{yyyy-MM-dd}.%i.log</FileNamePattern>
             <!--只保留最近90天的日志-->
-            <maxHistory>90</maxHistory>
+            <maxHistory>30</maxHistory>
+            <maxFileSize>100MB</maxFileSize>
             <!--用来指定日志文件的上限大小，那么到了这个值，就会删除旧的日志-->
-            <!--<totalSizeCap>1GB</totalSizeCap>-->
+            <totalSizeCap>1GB</totalSizeCap>
         </rollingPolicy>
         <!-- 追加方式记录日志 -->
         <append>true</append>
@@ -79,13 +80,14 @@
         -->
         <File>${logback.logdir}/info.${logback.appname}.log</File>
         <!--滚动策略，按照时间滚动 TimeBasedRollingPolicy-->
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
             <!--文件路径,定义了日志的切分方式——把每一天的日志归档到一个文件中,以防止日志填满整个磁盘空间-->
-            <FileNamePattern>${logback.logdir}/info.${logback.appname}.%d{yyyy-MM-dd}.log</FileNamePattern>
-            <!--只保留最近90天的日志-->
-            <maxHistory>90</maxHistory>
+            <FileNamePattern>${logback.logdir}/%d{yyyy-MM}/info.${logback.appname}.%d{yyyy-MM-dd}.%i.log</FileNamePattern>
+            <!--只保留最近30天的日志-->
+            <maxHistory>30</maxHistory>
+            <maxFileSize>100MB</maxFileSize>
             <!--用来指定日志文件的上限大小，那么到了这个值，就会删除旧的日志-->
-            <!--<totalSizeCap>1GB</totalSizeCap>-->
+            <totalSizeCap>1GB</totalSizeCap>
         </rollingPolicy>
         <!--日志输出编码格式化-->
         <encoder>
@@ -110,13 +112,14 @@
         -->
         <File>${logback.logdir}/warn.${logback.appname}.log</File>
         <!--滚动策略，按照时间滚动 TimeBasedRollingPolicy-->
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
             <!--文件路径,定义了日志的切分方式——把每一天的日志归档到一个文件中,以防止日志填满整个磁盘空间-->
-            <FileNamePattern>${logback.logdir}/warn.${logback.appname}.%d{yyyy-MM-dd}.log</FileNamePattern>
-            <!--只保留最近90天的日志-->
-            <maxHistory>90</maxHistory>
+            <FileNamePattern>${logback.logdir}/%d{yyyy-MM}/warn.${logback.appname}.%d{yyyy-MM-dd}.%i.log</FileNamePattern>
+            <!--只保留最近30天的日志-->
+            <maxHistory>30</maxHistory>
+            <maxFileSize>100MB</maxFileSize>
             <!--用来指定日志文件的上限大小，那么到了这个值，就会删除旧的日志-->
-            <!--<totalSizeCap>1GB</totalSizeCap>-->
+            <totalSizeCap>1GB</totalSizeCap>
         </rollingPolicy>
         <!--日志输出编码格式化-->
         <encoder>
@@ -141,13 +144,14 @@
         -->
         <File>${logback.logdir}/error.${logback.appname}.log</File>
         <!--滚动策略，按照时间滚动 TimeBasedRollingPolicy-->
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
             <!--文件路径,定义了日志的切分方式——把每一天的日志归档到一个文件中,以防止日志填满整个磁盘空间-->
-            <FileNamePattern>${logback.logdir}/error.${logback.appname}.%d{yyyy-MM-dd}.log</FileNamePattern>
-            <!--只保留最近90天的日志-->
-            <maxHistory>90</maxHistory>
+            <FileNamePattern>${logback.logdir}/%d{yyyy-MM}/error.${logback.appname}.%d{yyyy-MM-dd}.%i.log</FileNamePattern>
+            <!--只保留最近30天的日志-->
+            <maxHistory>30</maxHistory>
+            <maxFileSize>100MB</maxFileSize>
             <!--用来指定日志文件的上限大小，那么到了这个值，就会删除旧的日志-->
-            <!--<totalSizeCap>1GB</totalSizeCap>-->
+            <totalSizeCap>1GB</totalSizeCap>
         </rollingPolicy>
         <!--日志输出编码格式化-->
         <encoder>
